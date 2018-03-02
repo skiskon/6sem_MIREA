@@ -7,7 +7,15 @@ public class Data {
 
     public Data(int key) {
         this.key = key;
-        value = value + 'a';
+        value = "key " + key;
+    }
+
+    @Override
+    public String toString() {
+        return "Data{" +
+                "key=" + key +
+                ", value='" + value + '\'' +
+                '}';
     }
 
     public int getKey() {
