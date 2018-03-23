@@ -1,17 +1,22 @@
 package Work2;
 
-import guru.nidi.graphviz.engine.Format;
-import guru.nidi.graphviz.engine.Graphviz;
-import guru.nidi.graphviz.model.Graph;
-import guru.nidi.graphviz.model.LinkSource;
-
-import java.io.File;
-import java.io.IOException;
-
-import static guru.nidi.graphviz.model.Factory.*;
+//import guru.nidi.graphviz.engine.Format;
+//import guru.nidi.graphviz.engine.Graphviz;
+//import guru.nidi.graphviz.model.Graph;
+//import guru.nidi.graphviz.model.LinkSource;
+//
+//import java.io.File;
+//import java.io.IOException;
+//
+//import static guru.nidi.graphviz.model.Factory.*;
 
 public class Tree {
+     int i = 1;
     Node head;
+
+    public int getI() {
+        return i;
+    }
 
     public Tree() {
         head = null;
@@ -31,6 +36,7 @@ public class Tree {
             if (a.key > now.data.key) {
                 if (now.left == null) {
                     now.left = node;
+                    i++;
                     return;
 
                 }
@@ -39,6 +45,7 @@ public class Tree {
             }
             if (now.right == null) {
                 now.right = node;
+                i++;
                 return;
 
             }
@@ -48,12 +55,87 @@ public class Tree {
     }
 
     public void balance(){
+        double k;
+        k = Math.log(i+1)/Math.log(2);
+        if (i != 1 && i != 3 && i != 7 && i != 15 && i != 31 && i != 63 && i != 127){
+            System.out.println("Nevernoe kili4estvo elementov");
+            return;
+        }
+        Node node;
+        while (head.right != null){
+            if (head.right.left == null){
+                node = head.right;
+                node.left = head;
+                node.left.right = null;
+                head = node;
+                System.out.println("======"+node.left);
+                continue;
+            }
+            node = head.right;
+            head.right = node.left;
+            node.left = head;
+            head = node;
+
+        }
+
+        node = head;
+        Node tmp;
+        while (node != null) {
+            while (node.left.right != null) {
+              //  if (node.left.right != null) {
+                    tmp = node.left;
+                    node.left = node.left.right;
+                    tmp.right = node.left.left;
+                    node.left.left = tmp;
+               // }
+            }
+            node = node.left;
+            if (node.left == null){
+                break;
+            }
+        }
+
+
+        for (int u = 1; u < k;u++) {
+            node = head;
+            tmp = node;
+            tmp.left = node.left.right;
+            node = node.left;
+            node.right = tmp;
+            head = node;
+            for (int j = 1; j < (Math.pow(2, k - u) - 1); j++) {
+                tmp = node.left;
+                tmp.left = tmp.left.right;
+                node.left = node.left.left;
+                node.left.right = tmp;
+                node = node.left;
+
+            }
+        }
+
+
+//                node.left.right = node;
+//                node = node.left;
+//                node.right.left = null;
+//                head = node;
+//                node = node.left;
+
+//                node.left.left.right = node.left;
+//                node.left.left = node.left;
+//                node.left.right.left = null;
+
+
+
+
+
+
+
+
+
+
 
     }
 
-    public void dell(){
-
-    }
 
 //    @Override
 //    public String toString() {
@@ -89,9 +171,11 @@ public class Tree {
             System.out.print('-');
         System.out.println(node == null ? "null" : node.data.key);
         if (node != null) {
-            printNode(node.left, deep + 1);
             printNode(node.right, deep + 1);
+            printNode(node.left, deep + 1);
+
         }
+
     }
 //    public void vivod() throws IOException {
 //        Graph g = graph("example2").directed();

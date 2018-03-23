@@ -1,29 +1,45 @@
 package Work2;
 
 
-import guru.nidi.graphviz.engine.Format;
-import guru.nidi.graphviz.engine.Graphviz;
-import guru.nidi.graphviz.model.Graph;
-
-import java.io.File;
-import java.io.IOException;
-
-import static guru.nidi.graphviz.model.Factory.graph;
-import static guru.nidi.graphviz.model.Factory.node;
+//import guru.nidi.graphviz.engine.Format;
+//import guru.nidi.graphviz.engine.Graphviz;
+//import guru.nidi.graphviz.model.Graph;
+//
+//import java.io.File;
+//import java.io.IOException;
+//
+//import static guru.nidi.graphviz.model.Factory.graph;
+//import static guru.nidi.graphviz.model.Factory.node;
 
 public class Main {
     public static void main(String[] args) {
         Tree tree = new Tree();
-        tree.add(new Data(5));
-        tree.add(new Data(9));
-        tree.add(new Data(456));
-        tree.add(new Data(1));
-        tree.add(new Data(6546));
+        tree.add(new Data(6));
         tree.add(new Data(7));
+        tree.add(new Data(4));
+        tree.add(new Data(2));
+        tree.add(new Data(3));
+        tree.add(new Data(1));
+        tree.add(new Data(0));
+
+        tree.add(new Data(10));
+        tree.add(new Data(5));
+        tree.add(new Data(-6));
+        tree.add(new Data(9));
+        tree.add(new Data(-4));
+        tree.add(new Data(25));
+        tree.add(new Data(4985));
+        tree.add(new Data(-5));
+//        tree.add(new Data(1));
+//        tree.add(new Data(2));
+//        tree.add(new Data(3));
 
 
 
         tree.print();
+        tree.balance();
+        tree.print();
+        System.out.println("koi4esvo elementov - "+tree.getI());
 
     }
 //    static void vivod(Object obj)
