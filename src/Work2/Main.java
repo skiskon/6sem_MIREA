@@ -14,22 +14,22 @@ package Work2;
 public class Main {
     public static void main(String[] args) {
         Tree tree = new Tree();
-        tree.add(new Data(6));
-        tree.add(new Data(7));
-        tree.add(new Data(4));
-        tree.add(new Data(2));
-        tree.add(new Data(3));
-        tree.add(new Data(1));
-        tree.add(new Data(0));
-
+        tree.add(new Data(15));
+        tree.add(new Data(14));
+        tree.add(new Data(13));
+        tree.add(new Data(12));
+        tree.add(new Data(11));
         tree.add(new Data(10));
-        tree.add(new Data(5));
-        tree.add(new Data(-6));
         tree.add(new Data(9));
-        tree.add(new Data(-4));
-        tree.add(new Data(25));
-        tree.add(new Data(4985));
-        tree.add(new Data(-5));
+
+        tree.add(new Data(8));
+        tree.add(new Data(7));
+        tree.add(new Data(6));
+        tree.add(new Data(5));
+        tree.add(new Data(4));
+        tree.add(new Data(3));
+        tree.add(new Data(2));
+        tree.add(new Data(1));
 //        tree.add(new Data(1));
 //        tree.add(new Data(2));
 //        tree.add(new Data(3));

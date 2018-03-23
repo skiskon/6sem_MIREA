@@ -98,17 +98,19 @@ public class Tree {
 
         for (int u = 1; u < k;u++) {
             node = head;
-            tmp = node;
-            tmp.left = node.left.right;
-            node = node.left;
-            node.right = tmp;
-            head = node;
+            tmp = node.left;
+            node.left = node.left.right;
+            tmp.right = node;
+            head = tmp;
+
             for (int j = 1; j < (Math.pow(2, k - u) - 1); j++) {
-                tmp = node.left;
-                tmp.left = tmp.left.right;
+                node = head;
+                tmp = head.left;
                 node.left = node.left.left;
+                tmp.left = node.left.right;
                 node.left.right = tmp;
-                node = node.left;
+                head = node;
+
 
             }
         }
