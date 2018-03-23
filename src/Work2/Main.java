@@ -13,6 +13,7 @@ package Work2;
 
 public class Main {
     public static void main(String[] args) {
+
         Tree tree = new Tree();
         tree.add(new Data(15));
         tree.add(new Data(14));
@@ -30,16 +31,17 @@ public class Main {
         tree.add(new Data(3));
         tree.add(new Data(2));
         tree.add(new Data(1));
-//        tree.add(new Data(1));
-//        tree.add(new Data(2));
-//        tree.add(new Data(3));
 
 
 
         tree.print();
         tree.balance();
         tree.print();
+        tree.dell(tree.head,4);
+        tree.print();
         System.out.println("koi4esvo elementov - "+tree.getI());
+
+
 
     }
 //    static void vivod(Object obj)

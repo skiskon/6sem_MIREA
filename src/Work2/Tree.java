@@ -57,7 +57,7 @@ public class Tree {
     public void balance(){
         double k;
         k = Math.log(i+1)/Math.log(2);
-        if (i != 1 && i != 3 && i != 7 && i != 15 && i != 31 && i != 63 && i != 127){
+        if (k % 1 != 0){
             System.out.println("Nevernoe kili4estvo elementov");
             return;
         }
@@ -102,14 +102,16 @@ public class Tree {
             node.left = node.left.right;
             tmp.right = node;
             head = tmp;
+            node = head;
 
             for (int j = 1; j < (Math.pow(2, k - u) - 1); j++) {
-                node = head;
-                tmp = head.left;
+
+                tmp = node.left;
                 node.left = node.left.left;
                 tmp.left = node.left.right;
                 node.left.right = tmp;
-                head = node;
+                node = node.left;
+
 
 
             }
@@ -136,6 +138,39 @@ public class Tree {
 
 
 
+    }
+    public Node dell(Node node, int a){
+        if (node == null){
+            System.out.println("takogo zna4enia net");
+            return node;
+        }
+        if (a < node.data.key){
+            node.right = dell(node.right,a);
+        }
+        else if (a > node.data.key){
+            node.left = dell(node.left,a);
+        }
+        else if (node.right != null || node.left != null){
+            node.data = maxi(node.right).data;
+            node.right = dell(node.right,node.data.key);
+        }
+        else{
+            if (node.left != null){
+                node = node.left;
+            }
+            else {
+                node = node.right;
+            }
+        }
+        return node;
+
+
+    }
+    public Node maxi(Node node){
+        if (node.left == null){
+            return node;
+        }
+        return maxi(node.left);
     }
 
 
