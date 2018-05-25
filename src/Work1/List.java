@@ -45,6 +45,14 @@ public class List {
         return;
     }
 
+    public Item find(int pos){
+        Item now = head;
+        for (int i = 1; i <= pos; i++){
+            now = now.next;
+        }
+        return now.prev;
+    }
+
     @Override
     public String toString() {
         if (k == 0) return "Spisot pust";

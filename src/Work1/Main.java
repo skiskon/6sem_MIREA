@@ -33,11 +33,13 @@ public class Main {
             }
             if (num == 4) {
                 System.out.println("Spasibo za vnimanie");
-                return;
+//                return;
+                break;
             }
             num = in.nextInt();
         }
-//
+        System.out.println(list.find(2).data);
+
 //        list.add(new Work1.Data(1), 5); vivod(list);
 //        list.add(new Work1.Data(2), 5);vivod(list);
 //        list.add(new Work1.Data(3), 5);vivod(list);
