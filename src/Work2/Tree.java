@@ -18,9 +18,9 @@ public class Tree {
         return i;
     }
 
-    public Tree() {
-        head = null;
-    }
+//    public Tree() {
+//        head = null;
+//    }
 
     public void add(Data a) {
         Node node = new Node(a);
@@ -33,6 +33,10 @@ public class Tree {
 
         Node now = head;
         while (true) {
+            if (a.key == now.data.key){
+                System.out.println("Takoi element uze est' v dereve");
+                return;
+            }
             if (a.key > now.data.key) {
                 if (now.left == null) {
                     now.left = node;

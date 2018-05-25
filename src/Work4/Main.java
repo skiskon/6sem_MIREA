@@ -13,7 +13,7 @@ public class Main {
         int a = 100;
         rand =  (int) (1 +  (Math.random() * a));
  //       System.out.println(rand);
-        for (int i = 0;i < 1; i++){
+        for (int i = 0;i < 100; i++){
             System.out.println(rand);
             rand = (int) ( 1+ (Math.random() * a));
             table1.add(new Data(rand));
@@ -46,8 +46,8 @@ public class Main {
         table1.add(new Data(2));
 
         table1.print();
-//        table2.print();
-//        table3.print();
+        table2.print();
+        table3.print();
 
     }
 }
